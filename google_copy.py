@@ -16,7 +16,7 @@ sourceNode = glueContext.create_dynamic_frame.from_options(
     format_options={"quoteChar": '"', "withHeader": True, "separator": ","},
     connection_type="s3",
     format="csv",
-    connection_options={"paths": ["s3://smedia-data-raw-dev/google/abbotsfordnissan_8610421098/"], "recurse": True},
+    connection_options={"paths": ["s3://smedia-data-raw-dev/google/"], "recurse": True},
     transformation_ctx="sourceNode",
 )
 
