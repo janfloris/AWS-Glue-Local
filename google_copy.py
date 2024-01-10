@@ -5,12 +5,9 @@ from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
 
-# args = getResolvedOptions(sys.argv, ["JOB_NAME"])
 sc = SparkContext()
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
-# job = Job(glueContext)
-# job.init(args["JOB_NAME"], args)
 
 sourceNode = glueContext.create_dynamic_frame.from_options(
     format_options={"quoteChar": '"', "withHeader": True, "separator": ","},
@@ -30,5 +27,3 @@ targetNode = glueContext.write_dynamic_frame.from_options(
     },
     transformation_ctx="targetNode",
 )
-
-# job.commit()
