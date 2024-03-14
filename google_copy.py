@@ -13,7 +13,7 @@ sourceNode = glueContext.create_dynamic_frame.from_options(
     format_options={"quoteChar": '"', "withHeader": True, "separator": ","},
     connection_type="s3",
     format="csv",
-    connection_options={"paths": ["s3://smedia-data-raw-dev/google/"], "recurse": True},
+    connection_options={"paths": ["s3://media-data-raw-dev/google/"], "recurse": True},
     transformation_ctx="sourceNode",
 )
 
@@ -22,7 +22,7 @@ targetNode = glueContext.write_dynamic_frame.from_options(
     connection_type="s3",
     format="csv",
     connection_options={
-        "path": "s3://smedia-data-processing-dev/google/jf_cron_copy_local/",
+        "path": "s3://media-data-processing-dev/google/jf_cron_copy_local/",
         "partitionKeys": [],
     },
     transformation_ctx="targetNode",
